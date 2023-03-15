@@ -7,7 +7,7 @@ class Fibonacci
 
   def fibonacci?(value)
     if in_cache?(value)
-      return mensage("O #{value} pertence a sequencia de fibonacci!")
+      return "O #{value} pertence a sequencia de fibonacci!"
     elsif @cache[:ultimo_num_fib] && value > @cache[:ultimo_num_fib]
       fib_atual = @cache[:ultimo_num_fib] + @cache[:antercessor_ultimo_num_fib]
       aux_fib = @cache[:ultimo_num_fib]
@@ -24,9 +24,9 @@ class Fibonacci
 
     add_in_cache(fib_atual, aux_fib)
 
-    return mensage("O #{value} pertence a sequencia de fibonacci!") if fib_atual == value
+    return "O #{value} pertence a sequencia de fibonacci!" if fib_atual == value
 
-    mensage("O #{value} não pertence a sequencia de fibonacci!")
+    "O #{value} não pertence a sequencia de fibonacci!"
   end
 
   private
@@ -40,15 +40,4 @@ class Fibonacci
     true if @cache[:ultimo_num_fib] &&
             (@cache[:ultimo_num_fib] == value || @cache[:antercessor_ultimo_num_fib] == value)
   end
-
-  def mensage(value)
-    puts value
-  end
 end
-
-a = Fibonacci.new
-
-a.fibonacci?(0)
-a.fibonacci?(89)
-a.fibonacci?(100000)
-a.fibonacci?(75025)
